@@ -58,11 +58,3 @@ class DataBaseInteractor:
         with sqlite3.connect(self._db_name) as con:
             cur = con.cursor()
             cur.execute(main_query)
-
-
-if __name__ == '__main__':
-    mydb = DataBaseInteractor('general.db')
-    mydb.create_table('users', id='integer', name='text', age='integer')
-    r1 = mydb.get_data('users', 'id', 'name')
-    r2 = mydb.get_data('users', '*', id=2, name='sara')
-    mydb.add_data('users', id=3, name='ann', age=42)
